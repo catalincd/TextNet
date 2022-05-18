@@ -9,13 +9,10 @@ import { UserContext } from './UserContext'
 import Layout from './components/Layout'
 
 import Home from './routes/Home'
-import Signup from './routes/Signup'
-
-/*
 import Login from './routes/Login'
-
+import Signup from './routes/Signup'
 import Dashboard from './routes/Dashboard'
-*/
+import Profile from './routes/Profile'
 
 import './App.css';
 
@@ -29,20 +26,16 @@ function App() {
       <Router>
         <Layout>
         <Switch>
-          <Route path="/" exact component={Home}/>
+          <Route exact path="/" component={Home}/>
+          <Route path="/login" component={Login}/>
           <Route path="/signup" component={Signup}/>
-          
+          <Route path="/dashboard" component={Dashboard}/>
+          <Route path="/profile" component={Profile}/>
         </Switch>
         </Layout>
       </Router>
     </UserContext.Provider>
   );
 }
-
-/*
-          <Route path="/login" component={Login}/>
-          
-          <Route path="/dashboard" component={Dashboard}/>
-*/
 
 export default App;

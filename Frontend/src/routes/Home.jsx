@@ -1,9 +1,7 @@
 import React, {useContext} from "react"
-import Layout from '../components/Layout'
 import { UserContext } from "../UserContext"
 import Title from 'reactjs-title'
-import { useHistory } from "react-router-dom";
-import { withRouter } from 'react-router';
+import { useHistory, Link } from "react-router-dom";
 
 const HomeLayout = {
     height: '100%',
@@ -49,6 +47,7 @@ const Home = (props) =>{
   setUser(null);
   const history = useHistory();
 
+
   return (
     <div style={HomeLayout}>
         <h1 style={welcomeText}>welcome to <br/> <span style={slimText}>Text</span><span style={boldText}>Net</span><span style={slimText}>!</span></h1>
@@ -61,4 +60,4 @@ const Home = (props) =>{
 }
 
 
-export default withRouter(Home);
+export default Home;

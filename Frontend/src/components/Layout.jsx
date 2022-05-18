@@ -27,14 +27,29 @@ const CenterWrapper = {
     justifyContent: 'center',
 }
 
+const userDivStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'end',
+    width: '90%',
+    margin: '0 auto',
+}
+
 const Layout = (props) => {
 
+
+    const {user, setUser} = useContext(UserContext);
+    const history = useHistory();
+
+    const userDiv = <div style={userDivStyle} onClick={() => history.push("/profile")}>
+        <p>{user == null? "":user.name}</p>
+    </div>;
 
     return(
         <div style={CenterWrapper}>
             <div style={LayoutStyle} className="shadow">
                 <div className="bar topBar">
-                    
+                    {user && userDiv}
                 </div>
                 <div style={LayoutChildrenStyle}>
                     {props.children}
@@ -48,4 +63,4 @@ const Layout = (props) => {
 }
 
 
-export default withRouter(Layout)
+export default Layout;
