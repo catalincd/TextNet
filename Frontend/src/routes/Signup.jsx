@@ -110,7 +110,7 @@ const Signup = (props) =>{
         .then(data => {
           if(data.status){
             setErrorText(null);
-            setUser({name: username});
+            setUser({name: username, pic: 'default.jpg'});
             history.push("/dashboard");
           }
           else{

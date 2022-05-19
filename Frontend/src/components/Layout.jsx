@@ -51,7 +51,7 @@ const Layout = (props) => {
                 <div className="bar topBar">
                     {user && userDiv}
                 </div>
-                <div style={LayoutChildrenStyle}>
+                <div className="layoutWrapper" style={LayoutChildrenStyle}>
                     {props.children}
                 </div>
                 <div className="bar bottomBar">

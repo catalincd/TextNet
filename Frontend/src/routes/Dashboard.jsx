@@ -11,6 +11,11 @@ var CNT = 0;
 const Dashboard = (props) => {
   const {user, setUser} = useContext(UserContext);
   const history = useHistory();
+  const [addPost, addNewPost] = useState('');
+
+  const update = (post) => {
+    addNewPost(post)
+  } 
 
   if(user == null || user === null){
     history.push("/");
@@ -31,16 +36,15 @@ const Dashboard = (props) => {
             console.log("Error loading posts");
           }
         });
-  }, []);
+  }, [addPost]);
 
   return (
     <div>
       <h1>TextNet</h1>
-
       <div className="postsContainer">
-        <PostCreator />
+        <PostCreator updatePage={update} />
         {
-          posts.map((post) => <Post key={post.username} username={post.username} profile={post.profilePicture} text={post.text} date={post.createdAt}/>)
+          [...posts].reverse().map((post) => <Post key={post._id} username={post.username} profile={post.profilePicture} text={post.text} date={post.createdAt}/>)
         }
       </div>
       

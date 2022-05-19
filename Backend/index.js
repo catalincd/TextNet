@@ -38,7 +38,8 @@ app.post('/userExists', (req, res) => {
 })
 
 app.post('/createUser', (req, res) => {
-    const user = new User({username: req.query.name, password: req.query.pass})
+    const profPicture = (req.query.profilePic == null? "default.jpg":req.query.profilePic)
+    const user = new User({username: req.query.name, password: req.query.pass, profilePicture:profPicture})
     user.save()
     res.json({"status": true});
 })
@@ -49,7 +50,7 @@ app.post('/loginUser', (req, res) => {
       
       const success = (user? (user.password == req.query.pass) : false)
 
-      res.json({"status":status, "success": success});
+      res.json({"status":status, "success": success, "picture": user.profilePicture});
   });  
 })
 

@@ -97,7 +97,7 @@ const Login = (props) =>{
         .then(data => {
           if(data.status && data.success){
             setErrorText(null);
-            setUser({name: username});
+            setUser({name: username, pic: data.picture});
             history.push("/dashboard");
           }
           else{
