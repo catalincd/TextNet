@@ -153,3 +153,45 @@ body{
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
+.dashWrapperx{
+  width: 100%;
+  height: 70%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.inputImg{
+  display: none;
+}
+
+.imgLabel{
+  position: relative;
+}
+
+.profileImg{
+  cursor: pointer;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.profileImg:hover{
+  filter: brightness(50%);
+}
+
+.imgLabel:hover .uploadP{
+  opacity: 1;
+}
+
+.uploadP{
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(-50% - 5rem));
+  position: absolute;
+  color: white;
+  opacity: 0;
+  transition: all 0.2s ease;
+}

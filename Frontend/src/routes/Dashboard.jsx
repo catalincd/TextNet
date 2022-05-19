@@ -39,7 +39,7 @@ const Dashboard = (props) => {
   }, [addPost]);
 
   return (
-    <div>
+    <div className="dashWrapper">
       <h1>TextNet</h1>
       <div className="postsContainer">
         <PostCreator updatePage={update} />

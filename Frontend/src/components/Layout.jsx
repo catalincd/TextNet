@@ -28,6 +28,7 @@ const CenterWrapper = {
 }
 
 const userDivStyle = {
+    cursor: 'pointer',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'end',
