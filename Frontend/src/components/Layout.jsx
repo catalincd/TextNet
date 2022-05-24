@@ -32,6 +32,7 @@ const userDivStyle = {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'end',
+    alignItems: 'center',
     width: '90%',
     margin: '0 auto',
 }
@@ -42,9 +43,15 @@ const Layout = (props) => {
     const {user, setUser} = useContext(UserContext);
     const history = useHistory();
 
-    const userDiv = <div style={userDivStyle} onClick={() => history.push("/profile")}>
-        <p>{user == null? "":user.name}</p>
-    </div>;
+    const userDiv = <div>
+            {
+                user &&
+                <div style={userDivStyle} onClick={() => history.push("/profile")}>
+                    <p>{user.name}</p>
+                    <img src={"http://localhost:8000/images/" + user.pic} className="profileImgTop" />
+                </div>
+            }
+        </div>;
 
     return(
         <div style={CenterWrapper}>
@@ -56,7 +63,7 @@ const Layout = (props) => {
                     {props.children}
                 </div>
                 <div className="bar bottomBar">
-                    Social Network coded by w1zard
+                    Social Network coded by Catalin Dumitrescu
                 </div>
             </div>
         </div>

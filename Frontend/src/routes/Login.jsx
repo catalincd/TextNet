@@ -96,6 +96,7 @@ const Login = (props) =>{
         .then(response => response.json())
         .then(data => {
           if(data.status && data.success){
+            console.log(data);
             setErrorText(null);
             setUser({name: username, pic: data.picture});
             history.push("/dashboard");
